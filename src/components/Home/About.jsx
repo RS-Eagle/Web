@@ -1,10 +1,25 @@
 import React from "react";
 import about from "../../assets/img/about.png";
+import { Tilt } from 'react-tilt'
+
 
 const About = () => {
+  const defaultOptions = {
+    reverse:        false,  // reverse the tilt direction
+    max:            1,     // max tilt rotation (degrees)
+    perspective:    150,   // Transform perspective, the lower the more extreme the tilt gets.
+    scale:          1.01,    // 2 = 200%, 1.5 = 150%, etc..
+    speed:          1000,   // Speed of the enter/exit transition
+    transition:     true,   // Set a transition on enter/exit.
+    axis:           null,   // What axis should be disabled. Can be X or Y.
+    reset:          true,    // If the tilt effect has to be reset on exit.
+    easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+  }
+
   return (
-    <div className=" bg-white dark:bg-gray-800">
+    <div id="about" className="  bg-white dark:bg-gray-800">
       <div className="2xl:px-48  lg:px-14 md:px-8 p-8 top-0 w-full bg-white pt-28 pb-24 dark:bg-gray-800">
+         <Tilt options={defaultOptions} >
         <div className="2xl:h-[28rem] lg:h-96  bg-gradient-to-bl from-blue-500 to-blue-800 rounded-xl flex justify-between items-center flex-col-reverse lg:flex-row pt-10 lg:pt-0">
           <div className="lg:w-[50%] p-10 lg:p-14 lg:px-16 text-white">
             <h2 className="text-5xl font-medium text-center lg:text-left">
@@ -29,6 +44,7 @@ const About = () => {
             <div className="absolute bottom-0 left-1/2  -translate-x-1/2 w-3/4 h-10 bg-black opacity-30 blur-lg rounded-full"></div>
           </div>
         </div>
+      </Tilt>
       </div>
     </div>
   );

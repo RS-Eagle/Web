@@ -9,4 +9,6 @@ html {
   user-select: none;
   box-sizing: border-box;
   background-color: #1f2937 ;
+  scroll-behavior: smooth;
 }
+

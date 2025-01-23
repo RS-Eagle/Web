@@ -1,56 +1,102 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import webdesign from "../../assets/img/webdesign.png"
 import mobileApp from "../../assets/img/mobileApp.png"
 import performance from "../../assets/img/performance.png"
 import photo from "../../assets/img/photo.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { inView, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Services = () => {
+  const elementRef = useRef(null);
+
+  const isInView = useInView(elementRef, {
+    margin: "400px 0px -10% 0px",  
+  });
+  const elementRef1 = useRef(null);
+
+  const isInView1 = useInView(elementRef1, {
+    margin: "-20% 0px -30% 0px",  
+  });
+  const elementRef2 = useRef(null);
+
+  const isInView2 = useInView(elementRef2, {
+    margin: "-20% 0px -30% 0px", 
+  });
+  const elementRef3 = useRef(null);
+
+  const isInView3 = useInView(elementRef3, {
+    margin: "-20% 0px -30% 0px",  
+  });
+  const elementRef4 = useRef(null);
+
+  const isInView4 = useInView(elementRef4, {
+    margin: "-20% 0px -30% 0px",  
+  });
 
   const servicesArr = [{
     title:"Web Design",
     des:"We are a creative digital agency dedicated to transforming brands with innovative web solutions. Our team specializes in crafting visually stunning, user-friendly websites that drive engagement and business growth.",
     keypoints:["Creative Design Solutions","User-Centered Approach","Growth-Driven Strategies"],
-    image:webdesign
+    image:webdesign,
+    elRef:elementRef1,
+    customInview:isInView1
   },
   {
     title:"Mobile App",
     des:"We build innovative mobile apps for iOS, Android, and cross-platform needs. Our solutions offer intuitive design, seamless performance, and scalability to enhance user experience and drive business success.",
     keypoints:["Custom Mobile Solutions","User-Centric Design","Scalable & High-Performance"],
-    image:mobileApp
+    image:mobileApp,
+    elRef:elementRef2,
+    customInview:isInView2
   },
   {
     title:"Performance Marketing",
     des:"We deliver data-driven performance marketing solutions across SEO, PPC, and social media to maximize ROI. Our strategic approach ensures targeted reach, measurable results, and continuous growth for your business.",
     keypoints:["Results-Driven Strategies","Multi-Channel Approach","Measurable Growth"],
-    image:performance
+    image:performance,
+    elRef:elementRef3,
+    customInview:isInView3
   },
   {
     title:"Video & Photography",
     des:"We provide professional video and photography services to showcase your brand’s story. Our creative visuals enhance engagement, build brand identity, and deliver high-quality content tailored to your business goals.",
     keypoints:["Creative Visual Storytelling","High-Quality Production","Tailored Content"],
-    image:photo
+    image:photo,
+    elRef:elementRef4,
+    customInview:isInView4
   },
   
 
 ]
 
+const itemsVariants = {
+  hidden:{ opacity:0,y:20 },
+  visible :{
+    opacity:1,
+    y:0,
+    transition:{
+      duration:0.5
+    }
+  }    
+}
+
 
 
   return (
-    <div className=" bg-white dark:bg-gray-800 ">
+    <div id="services" className=" bg-white dark:bg-gray-800 ">
       <div className="2xl:px-48  lg:px-14 p-8 top-0 w-full bg-white pt-24  dark:bg-gray-800">
-        <h3 className="text-center text-5xl text-black dark:text-white ">
+        <motion.h3 ref={elementRef} variants={itemsVariants} initial="hidden" animate={`${isInView?"visible":""}`}  className="text-center text-5xl text-black dark:text-white ">
           Our Services
-        </h3>
+        </motion.h3>
         <div className="pt-20 md:mx-14">
 
         {servicesArr.map((e,i)=>{
           return(
-            <div key={e.title} className={`w-full flex justify-between items-center mb-10  ${i%2==0?"flex-col-reverse md:flex-row":"md:flex-row-reverse flex-col-reverse"}`}>
+            <div key={e.title}  className={`w-full flex justify-between items-center mb-10  ${i%2==0?"flex-col-reverse md:flex-row":"md:flex-row-reverse flex-col-reverse"}`}>
             <div className="md:w-[50%] w-full ">
-              <h2 className="text-4xl text-blue-500 font-medium dark:text-white">{e.title}</h2>
+              <h2 ref={e.elRef}   className={`${e.customInview?"dark:text-blue-500":"dark:text-white"} text-4xl text-blue-500 transition-all duration-300 font-medium `}>{e.title}</h2>
               <p className="text-lg mt-2 text-black font-medium dark:text-white text-opacity-60 dark:text-opacity-60">{e.des}</p>
               <div className="mt-6 flex  flex-col gap-2">
                 <div className="flex items-center">

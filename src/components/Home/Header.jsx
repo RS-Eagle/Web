@@ -2,9 +2,26 @@ import React from "react";
 import "./Header.css"
 import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 
 const Header = ({props}) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, 
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+
   const handleClick = () => {
     props.setToggleMode((pre) => !pre);
   };
@@ -18,12 +35,11 @@ const Header = ({props}) => {
           </h2>
         </div>
         <div className="hidden md:block">
-          <ul className="flex justify-between items-center gap-20 *:cursor-pointer">
-            <li>Home</li>
-            <li>Services</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
+          <motion.ul variants={containerVariants} initial="hidden" animate="visible" className="flex justify-between items-center gap-20 *:cursor-pointer">
+            <motion.li variants={itemVariants} ><a  href={"/#home"}> Home</a></motion.li>
+            <motion.li variants={itemVariants} ><a  href={"/#services"} > Services</a></motion.li>
+            <motion.li variants={itemVariants} ><a  href={"/#about"} >About</a> </motion.li>
+          </motion.ul>
         </div>
         <div>
           <div>
