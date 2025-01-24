@@ -49,10 +49,10 @@ const Hero = ({toggleMode}) => {
   
   return (
     <div id="home" className="lg:pt-28 pt-7 mb-0 min-h-[90vh]  overflow-hidden bg-white dark:bg-gray-800 flex justify-center items-center flex-col">
-          <div className={`${!toggleMode?"hidden":"lg:block hidden"} absolute    top-2/4 -left-14   w-20 shadow-[0px_0px_150px_150px_rgba(52,113,228,1)]  rounded-full h-20 bg-[rgba(52,113,228,1)] opacity-40 blur-3xl `}></div>
+          <div className={`${!toggleMode?"hidden":"lg:block hidden"} absolute top-2/4 -left-14   w-20 shadow-[0px_0px_150px_150px_rgba(52,113,228,1)]  rounded-full h-20 bg-[rgba(52,113,228,1)] opacity-40 blur-3xl `}></div>
           <div className={`${!toggleMode?"hidden":"lg:block hidden"}  absolute top-1/4 -right-16 w-20 shadow-[0px_0px_150px_150px_#4e8cff] rounded-full h-20 bg-[#4e8cff] opacity-50 blur-3xl`}></div>
       <div className="lg:mt-5 mt-2 overflow-hidden">
-        <motion.h2 variants={itemsVariants} initial="hidden" animate="visible"  className="overflow-hidden 2xl:text-[9rem] lg:text-[7rem] text-7xl font-extrabold leading-none text-center text-black dark:text-white">
+        <motion.h2 variants={itemsVariants} initial="hidden" animate="visible"  className="overflow-hidden 2xl:text-[9rem] lg:text-[7rem] text-7xl  font-extrabold leading-none text-center text-black dark:text-white">
           Triton <br />{" "}
           <span className=" font-extrabold bg-gradient-to-bl from-blue-500 to-blue-800 bg-clip-text text-transparent  ">
             Solutions
