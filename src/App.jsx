@@ -7,6 +7,7 @@ import Hero from './components/Home/Hero'
 import InfinityMarquee from './components/Home/InfinityMarquee'
 import Services from './components/Home/Services'
 import About from './components/Home/About'
+import Testimonial from './components/Home/testimonial'
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
       <InfinityMarquee/>
       </div>
       <Services/>
+      <Testimonial/>
       <About/>
     </div>
   )

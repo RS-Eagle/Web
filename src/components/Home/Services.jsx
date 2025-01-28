@@ -90,6 +90,9 @@ const itemsVariants = {
         <motion.h3 ref={elementRef} variants={itemsVariants} initial="hidden" animate={`${isInView?"visible":""}`}  className="text-center text-5xl text-black dark:text-white ">
           Our Services
         </motion.h3>
+        <p className='text-center mt-5 text-sm dark:text-opacity-70 text-black dark:text-white '>
+        ~ Discover What We Offer to Elevate You
+        </p>
         <div className="pt-20 md:mx-14">
 
         {servicesArr.map((e,i)=>{
