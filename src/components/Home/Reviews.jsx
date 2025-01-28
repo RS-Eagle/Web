@@ -5,62 +5,61 @@ import star from "../../assets/img/star.png";
 import "./Testimonial.css";
 import Marquee from "react-fast-marquee";
 
-const Testimonial = () => {
-  const elementRef = useRef(null);
+const Reviews = () => {
+    const elementRef = useRef(null);
 
-  const isInView = useInView(elementRef, {
-    margin: "400px 0px -10% 0px",
-  });
-
-  const itemsVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
+    const isInView = useInView(elementRef, {
+      margin: "400px 0px -10% 0px",
+    });
+  
+    const itemsVariants = {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.5,
+        },
       },
-    },
-  };
-
-  const testArr = [
-    {
-      username: "John",
-      starCount: 4,
-      content:
-        "I was hesitant to try Triton Solution at first, but I'm so glad I did - it's exceeded all of my expectations.",
-      userImage: user,
-    },
-    {
-      username: "Emily",
-      starCount: 5,
-      content:
-        "Triton Solution has completely transformed the way I manage my projects. I can't recommend it enough!",
-      userImage: user,
-    },
-    {
-      username: "Michael",
-      starCount: 4,
-      content:
-        "Great experience overall. Triton Solution made it so easy to stay organized and productive.",
-      userImage: user,
-    },
-    {
-      username: "Sophia",
-      starCount: 5,
-      content:
-        "Using Triton Solution was the best decision for our team. It's user-friendly and incredibly effective.",
-      userImage: user,
-    },
-    {
-      username: "David",
-      starCount: 3,
-      content:
-        "Triton Solution is good, but I feel there's room for improvement in terms of features and customization.",
-      userImage: user,
-    },
-  ];
-
+    };
+  
+    const testArr = [
+      {
+        username: "John",
+        starCount: 4,
+        content:
+          "I was hesitant to try Triton Solution at first, but I'm so glad I did - it's exceeded all of my expectations.",
+        userImage: user,
+      },
+      {
+        username: "Emily",
+        starCount: 5,
+        content:
+          "Triton Solution has completely transformed the way I manage my projects. I can't recommend it enough!",
+        userImage: user,
+      },
+      {
+        username: "Michael",
+        starCount: 4,
+        content:
+          "Great experience overall. Triton Solution made it so easy to stay organized and productive.",
+        userImage: user,
+      },
+      {
+        username: "Sophia",
+        starCount: 5,
+        content:
+          "Using Triton Solution was the best decision for our team. It's user-friendly and incredibly effective.",
+        userImage: user,
+      },
+      {
+        username: "David",
+        starCount: 3,
+        content:
+          "Triton Solution is good, but I feel there's room for improvement in terms of features and customization.",
+        userImage: user,
+      },
+    ];
   return (
     <div className="mt-10">
       <motion.h3
@@ -102,7 +101,7 @@ const Testimonial = () => {
         </Marquee>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Testimonial;
+export default Reviews
