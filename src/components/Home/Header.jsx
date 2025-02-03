@@ -1,11 +1,22 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import "./Header.css"
 import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import { motion,useScroll } from "framer-motion";
+
 
 
 const Header = ({props}) => {
+  const { scrollY } = useScroll(); 
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((y) => {
+      setIsTop(y <= 10); 
+    });
+
+    return () => unsubscribe(); 
+  }, [scrollY]);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,8 +38,8 @@ const Header = ({props}) => {
   };
 
   return (
-    <div className="w-full absolute z-10 ">
-      <nav className="flex justify-between items-center p-8 text-black dark:text-white">
+    <div className={`w-full fixed z-10 transition-all bg-transparent ${!isTop?"bg-[#2B5DCE]/10 rounded-xl  shadow-xl backdrop-blur-[12.7px]":""} `}>
+      <nav className="flex justify-between items-center p-8 py-7 text-black dark:text-white">
         <div>
           <h2 className="text-4xl  text-blue-500 font-medium ">
             Triton
